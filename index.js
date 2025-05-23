@@ -8,10 +8,15 @@ const port = process.env.PORT || 8000
 
 require('dotenv').config()
 
+const allowedOrigins = [
+  "https://book-store-pied-psi.vercel.app",
+  "http://localhost:5173" // if testing locally
+];
+
 //middleware
 app.use(express.json())
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: allowedOrigins,
     credentials: true,
 }))
 
